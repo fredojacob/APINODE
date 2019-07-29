@@ -7,22 +7,22 @@ block content
             h1
                 a(href="/") #{title}
           
-                form.form(method="POST" action="/actualizar/"#{data.movie})
+                form.form(method="POST" action="/actualizar/#{data[0].movie_id}")
                     fieldset    
                         div.container.p1
                             label.item.i-b.v-top.ph3.p_25.right(for="movie_id") IMDB id :
-                            input.item.i-b.v-top.ph9.p_25#movie_id(type="text", name="movie_id", value ="#{movie.movie_id}", disabled, required)
+                            input.item.i-b.v-top.ph9.p_25#movie_id(type="text", name="movie_id", value =`${data[0].movie_id}`, disabled, required)
                         div.container.p1
                             label.item.i-b.v-top.ph3.p_25.right(for="title") titulo:
-                            input.item.i-b.v-top.ph9.p_25#title(type="text", name="title",value ="#{movie.title}" required)
+                            input.item.i-b.v-top.ph9.p_25#title(type="text", name="title",value =`${data[0].title}` required)
                         div.container.p1
                             label.item.i-b.v-top.ph3.p_25.right(for="release_year") anio:
-                            input.item.i-b.v-top.ph9.p_25#release_year(type="text", name="release_year", value ="#{data[0].release_year}" required)
+                            input.item.i-b.v-top.ph9.p_25#release_year(type="text", name="release_year", value =`${data[0].release_year}` required)
                         div.container.p1
                             label.item.i-b.v-top.ph3.p_25.right(for="rating") Calificacion:
-                            input.item.i-b.v-top.ph9.p_25#rating(type="text", name="rating", value ="#{data[0].rating}" required)
+                            input.item.i-b.v-top.ph9.p_25#rating(type="text", name="rating", value =`${data[0].rating}` required)
                         div.container.p1
                             label.item.i-b.v-top.ph3.p_25.right(for="images") Poster:
-                            input.item.i-b.v-top.ph9.p_25#images(type="text", name="images", value ="#{data[0].images}", required)
+                            input.item.i-b.v-top.ph9.p_25#images(type="text", name="images", value =`${data[0].images}`, required)
                         div.container.p1
                             input.item.ph4.mauto.button.edit(type="submit", value="Editar")

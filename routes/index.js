@@ -68,7 +68,7 @@ var movies = require ('../Models/movies'),
                                 title: 'esta pelicula', 
                                 data: movies
                             }
-                            res.render('editmovie', req.body.movie_id)
+                            res.render('editmovie', locals)
                         }
                     })
                 })
