@@ -76,7 +76,7 @@ var movies = require ('../Models/movies'),
             router.post('/actualizar/:movie_id', (req, res, next) =>{
                
                 req.getConnection( (err, movies) => {
-                    console.log(movie)
+                    console.log(movies)
                     let movie = {
                         movie_id: req.body.movie_id,
                         title: req.body.title,
