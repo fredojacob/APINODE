@@ -73,19 +73,20 @@ var movies = require ('../Models/movies'),
                     })
                 })
             })
-            router.post('/actualizar/:movie_id', (req, res, next) =>{
+            router.post(`/actualizar/:movie_id` , (req, res, next) =>{
                
                 req.getConnection( (err, movies) => {
                     console.log(movies)
                     let movie = {
-                        movie_id: req.body.movie_id,
-                        title: req.body.title,
-                        release_year: req.body.release_year,
-                        rating: req.body.rating,
-                        images: req.body.images
+                        movie_id: req.params.movie_id,
+                        title: req.params.title,
+                        release_year: req.params.release_year,
+                        rating: req.params.rating,
+                        images: req.params.images
                     }            
-                    movies.query('UPDATE movie SET ? WHERE movie_id =?', [movie, movie.movie_id], (err, rows) =>  {
+                    movies.query('UPDATE movie SET ? WHERE movie_id =?', [movie, movie.movie_id], (err, movies) =>  {
                         return (err) ? res.redirect('/editar/:movie_id') : res.redirect('/agregar')
+                        console.log('actualizado')
                     })
                 }) 
             })
