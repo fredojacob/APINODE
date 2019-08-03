@@ -23,7 +23,7 @@ var express = require('express'),
             .use(favicon (faviconURL) )
             .use( bodyParser.json() )
             //toda la informacion del formulario se parse application/x-www-form-urlencoded
-            .use( bodyParser.urlencoded( { extended: false}) )
+            .use( bodyParser.urlencoded( { extended: true}) )
             .use( morgan('dev') )
             .use ( publicDIR )
         // ejecuto el midleware enrutador
