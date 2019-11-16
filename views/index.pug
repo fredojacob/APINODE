@@ -4,9 +4,8 @@ block content
     section.container
         div.item.logo
         div.item
-            h1
-                a(href="/") formulario #{   title    }
-                    if(data.length)
+            h1           
+                    if(data.leght == null)
                         
                         table.table
                             tr
@@ -23,7 +22,8 @@ block content
                                     td #{movie.movie_id}
                                     td #{movie.title}                            
                                     td #{movie.release_year}                           
-                                    td #{movie.rating}                                                       
+                                    td #{movie.rating}   
+                                                                                        
                                     td
                                         img.poster(src="#{movie.images}" )
                                     td

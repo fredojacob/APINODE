@@ -3,7 +3,7 @@ var movies = require ('../Models/movies'),
     express = require('express'),
     router = express.Router()
 
-    
+   
 
                 function error404(req, res, next){
                     let error = new Error(),
@@ -15,10 +15,27 @@ var movies = require ('../Models/movies'),
                     error.status = 404
                     res.render('error', locals)
                     
-                    next()
+                   
                                                 }
                         
-                router.use(movies)
+                                                router.use(movies)
+
+                                                router.get('/prueba', (req, res, next) => {
+                                                    req.getConnection( (err, movies)=> {
+                                                        movies.query('select * from clientes', (err, rows) => {
+                                                            if (err) throw err;  
+                                                          
+                                                            res.json(rows);
+                                                            })
+                                                        })
+                                                    
+                                                                })
+
+                                                                
+
+                                              
+
+            
     
                 router.get('/', (req, res, next) => {
                 req.getConnection( (err, movies)=> {
