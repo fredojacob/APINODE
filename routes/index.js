@@ -20,7 +20,7 @@ var movies = require ('../Models/movies'),
                         
                                                 router.use(movies)
 
-                                                router.get('/prueba', (req, res, next) => {
+                                                router.get('/json/clientes', (req, res, next) => {
                                                     req.getConnection( (err, movies)=> {
                                                         movies.query('call sp_clientes()', (err, rows) => {
                                                             if (err) throw err;  
@@ -30,6 +30,32 @@ var movies = require ('../Models/movies'),
                                                         })
                                                     
                                                                 })
+
+                                                                
+                                                router.get('/json/tasks', (req, res, next) => {
+                                                    req.getConnection( (err, movies)=> {
+                                                        movies.query('call sp_tasks()', (err, rows) => {
+                                                            if (err) throw err;  
+                                                          
+                                                            res.json(rows);
+                                                            })
+                                                        })
+                                                    
+                                                                })
+
+                                                                  router.get('/json/helpdesks', (req, res, next) => {
+                                                    req.getConnection( (err, movies)=> {
+                                                        movies.query('call sp_helpdesks()', (err, rows) => {
+                                                            if (err) throw err;  
+                                                          
+                                                            res.json(rows);
+                                                            })
+                                                        })
+                                                    
+                                                                })
+
+
+
     
                 router.get('/', (req, res, next) => {
                 req.getConnection( (err, movies)=> {
