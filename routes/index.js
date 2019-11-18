@@ -43,9 +43,9 @@ var movies = require ('../Models/movies'),
                                                     
                                                                 })
 
-                                                                  router.get('/json/helpdesks', (req, res, next) => {
+                                                                  router.get('/json/blacklists', (req, res, next) => {
                                                     req.getConnection( (err, movies)=> {
-                                                        movies.query('call sp_helpdesks()', (err, rows) => {
+                                                        movies.query('call sp_blacklists()', (err, rows) => {
                                                             if (err) throw err;  
                                                           
                                                             res.json(rows);
