@@ -22,7 +22,7 @@ var movies = require ('../Models/movies'),
 
                                                 router.get('/prueba', (req, res, next) => {
                                                     req.getConnection( (err, movies)=> {
-                                                        movies.query('select * from clientes', (err, rows) => {
+                                                        movies.query('call sp_clientes()', (err, rows) => {
                                                             if (err) throw err;  
                                                           
                                                             res.json(rows);
@@ -30,12 +30,6 @@ var movies = require ('../Models/movies'),
                                                         })
                                                     
                                                                 })
-
-                                                                
-
-                                              
-
-            
     
                 router.get('/', (req, res, next) => {
                 req.getConnection( (err, movies)=> {
