@@ -31,6 +31,20 @@ var movies = require ('../Models/movies'),
                                                     
                                                                 })
 
+
+                                                                
+                                                router.get('/json/customers', (req, res, next) => {
+                                                    req.getConnection( (err, movies)=> {
+                                                        movies.query('call sp_customers()', (err, rows) => {
+                                                            if (err) throw err;  
+                                                          
+                                                            res.json(rows);
+                                                            })
+                                                        })
+                                                    
+                                                                })
+
+
                                                                 
                                                 router.get('/json/tasks', (req, res, next) => {
                                                     req.getConnection( (err, movies)=> {
