@@ -48,7 +48,7 @@ var movies = require ('../Models/movies'),
                                                                 
                                                 router.get('/json/tasks', (req, res, next) => {
                                                     req.getConnection( (err, movies)=> {
-                                                        movies.query('call sp_tasks()', (err, rows) => {
+                                                        movies.query('select * from users;', (err, rows) => {
                                                             if (err) throw err;  
                                                           
                                                             res.json(rows);
